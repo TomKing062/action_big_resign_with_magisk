@@ -1,13 +1,13 @@
-SIZE_LIMIT=$((35*1024*1024))
-if [ -n "$1" ]; then
-    FILE_SIZE=$(($1 * 1024 * 1024))
-else
-    FILE_SIZE=$(stat -c%s boot.img)
-fi
+#SIZE_LIMIT=$((35*1024*1024))
+#if [ -n "$1" ]; then
+#    FILE_SIZE=$(($1 * 1024 * 1024))
+#else
+#    FILE_SIZE=$(stat -c%s boot.img)
+#fi
 
-if [ "$FILE_SIZE" -ge "$SIZE_LIMIT" ]; then
-    cp -f ../magisk.apk zzz/assets/stub.apk
-fi
+#if [ "$FILE_SIZE" -ge "$SIZE_LIMIT" ]; then
+#    cp -f ../magisk.apk zzz/assets/stub.apk
+#fi
 
 # Flags
 export KEEPVERITY=true
