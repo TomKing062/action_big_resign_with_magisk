@@ -70,7 +70,7 @@ jobs:
         ./sign_avb.sh ${{ github.event.inputs.PART_NAME }} ../image.img ../image.img ${{ github.event.inputs.PART_SIZE }}
 
     - name: Upload to Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v3
       with:
         files: | 
           image.img
