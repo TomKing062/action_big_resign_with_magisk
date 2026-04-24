@@ -57,7 +57,7 @@ jobs:
         ./sign.sh
 
     - name: Upload to Release
-      uses: softprops/action-gh-release@v1
+      uses: softprops/action-gh-release@v3
       with:
         files: | 
           resigned.zip
