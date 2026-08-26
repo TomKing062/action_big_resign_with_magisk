@@ -1,39 +1,39 @@
-name: resign_v3
+ssh-private-key:|姓名名称：resign_v3
 
-on:
-  workflow_dispatch:
-    inputs:
-      ZIP_URL:    
-        description: 'URL of (splloader)+uboot+sml+trustos+(teecfg)+vbmeta+boot+(recovery) (all end with .bin)'
-        required: true
-        default: ''
-      EXTRA_KEY_TREE_URL:
-        description: 'EXTRA_KEY_TREE_URL (leave blank if you only use unisoc keys)'
-        required: false
-      EXTRA_KEY_BRANCH:
-        description: 'EXTRA_KEY_BRANCH (leave blank if you only use unisoc keys)'
-        required: false
-      antiroll:
-        description: 'anti-rollback version (trusted_version) for BSP signing'
-        required: false
-        default: '0'
+在……之上:
+workflow_dispatch:
+输入:
+zip_URL:    
+描述: 'URL，共个(splloader)+uboot+sml+trustos+(teecfg)+vbmeta+boot+(恢复)(全部以.bin结尾)'
+必需的: 正确
+默认: ''
+extra_KEY_TREE_URL:
+描述: 'extra_KEY_TREE_URL(如果仅使用unisoc键，则保留空白)'
+必需的: 假的
+extra_KEY_BRANCH:
+描述: 'extra_KEY_BRANCH(如果只使用unisoc键，则保留空白)'
+必需的: 假的
+防倾:
+描述: '用于BSP签名的反回滚版本(trusted_version)'
+必需的: 假的
+默认: '0'
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
+工作:
+建立:
+连续的: Ubuntu-最新
+步骤:
     
-    - name: Checkout
-      uses: actions/checkout@v7
-      with:
-        ref: main
-        path: main
+-姓名: 结帐
+uses: 操作/结帐@v7
+和……一起:
+裁判: 主要的
+路径: 主要的
 
-    - name: Setup SSH Keys
-      if: ${{ startsWith(github.event.inputs.EXTRA_KEY_TREE_URL, 'git@github.com') }}
-      uses: webfactory/ssh-agent@v0.10.0
-      with:
-          ssh-private-key: |
+-姓名: 设置SSH密钥
+如果: ${{startswith(github.事件。输入。extra_KEY_TREE_URL, 'git@github.com') }}
+uses: webfactory/ssh-agent@v0.10.0
+和……一起:
+ssh-private-key: |
             ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Clone extra keys
